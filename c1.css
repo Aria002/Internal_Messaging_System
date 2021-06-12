@@ -1,0 +1,148 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Montserrat";
+  margin-top:20px;
+  background-color: #addcff;
+}
+section {
+  height: 100vh;
+  width: 100%;
+  background-color: #addcff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.regform{
+      font-size:12px;
+      height:100px;
+      width:500px;
+      background-color:#496a82;
+      margin:1px;
+      color:#FFFFFF;
+      padding:35px 30px 30px 30px;
+      text-align:center;
+      border-radius:5px 5px 0px 0px;
+    }
+.compose {
+  width: 100%;
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+  box-shadow: 0px 0px 20px #00000010;
+  background-color: white;
+  border-radius: 0px 0px 5px 5px;
+  margin-bottom: 20px;
+}
+.form-group {
+  width: 100%;
+  margin-top: 15px;
+  font-size: 15px;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 5px;
+  font-size: 18px;
+  border: 1px solid #8a959e;
+  border-top-left-radius: 5px;
+  border-top-right-radius:5px;
+  border-bottom-right-radius: 5px; 
+  border-bottom-left-radius: 5px;
+  margin-top: 5px;
+}
+
+.file-upload {
+  display: inline-flex;
+  align-items: center;
+  font-size: 15px;
+}
+
+.file-upload__input {
+  display: none;
+}
+
+.file-upload__button {
+  -webkit-appearance: none;
+  background:#496a82;
+  border: 2px solid #00745d;
+  border-radius: 4px;
+  outline: none;
+  padding: 0.5em 0.8em;
+  margin-right: 15px;
+  color: #ffffff;
+  font-size: 1em;
+  font-family: "Quicksand", sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.file-upload__button:active {
+  background: #00745d;
+}
+
+.file-upload__label {
+  max-width: 250px;
+  font-size: 0.95em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: "Quicksand", sans-serif;
+}
+
+
+textarea {
+  resize: vertical;
+}
+button[type="submit"] {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 20px;
+  font-size: 24px;
+  border-radius: 8px;
+  font-family: "Montserrat";
+  color:#496a82;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s ease background-color;
+}
+button[type="submit"]:hover {
+  background-color: rgb(214, 226, 236);
+}
+#status {
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+#status.success {
+  background-color: rgb(211, 250, 153);
+  animation: status 4s ease forwards;
+}
+#status.error {
+  background-color: rgb(250, 129, 92);
+  color: white;
+  animation: status 4s ease forwards;
+}
+@keyframes status {
+  0% {
+    opacity: 1;
+    pointer-events: all;
+  }
+  90% {
+    opacity: 1;
+    pointer-events: all;
+  }
+  100% {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
