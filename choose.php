@@ -8,8 +8,8 @@
   </head>
   <body>
     <div class="middle">
-      <a class="btn" href="mail.php"><i class="fas fa-envelope-open"></i></a>
-      <a class="btn" href="chat.php"><i class="fas fa-comments"></i></a>
+      <a class="btn" href="mail.php"><i class="fas fa-envelope-open"> Mail</i></a>
+      <a class="btn" href="chat.php"><i class="fas fa-comments"> Chat</i></a>
     </div>
   </body>
 </html>
