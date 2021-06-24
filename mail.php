@@ -1,3 +1,4 @@
+<?php include_once "connection.php"; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -139,89 +140,36 @@ li a.active {
   </table>
   <br>
   <table>
-    <tr>
-      <td><input type="checkbox" name="" value=""></td>
-      <td>SBI Insurance</td>
-      <td>State Bank of India: Annual Report 2020 – 21 and Notice of 66th Annual General Meeting</td>
-    </tr>
-        <tr>
-      <td><input type="checkbox" name="" value=""></td>
-      <td>Bajaj Finserv EMIcard</td>
-      <td>Hello, Get your Insta EMIcard in 30Seconds...</td>
-    </tr>
-        <tr>
-      <td><input type="checkbox" name="" value=""></td>
-      <td>Freelancer.com</td>
-      <td>We want you for an exciting new project!</td>
-    </tr>
-        <tr>
-      <td><input type="checkbox" name="" value=""></td>
-      <td>Angel broking</td>
-      <td>Dear sir/madam,Open your freeDemat account in just 5minutes</td>
-    </tr>
-        <tr>
-      <td><input type="checkbox" name="" value=""></td>
-      <td>Big Bazaar</td>
-      <td>Big Bazaar Sale is live Now- Get Flat 50% off</td>
-    </tr>
-        <tr>
-      <td><input type="checkbox" name="" value=""></td>
-      <td>HDFC securities</td>
-      <td>Hi, Open a Demat A/c with HDFC securities Today. Open Demat account Now.</td>
-    </tr>
-        <tr>
-      <td><input type="checkbox" name="" value=""></td>
-      <td>Find-yourPartner</td>
-      <td>Hi,JoinUs in your search for your Perfect-Partner.</td>
-    </tr>
-        <tr>
-      <td><input type="checkbox" name="" value=""></td>
-      <td>Police recruitment</td>
-      <td>Police notification for job openings of SI, ASI..</td>
-    </tr>
-        <tr>
-      <td><input type="checkbox" name="" value=""></td>
-      <td>Kotak VideoKYC</td>
-      <td>Hi,Planning toOpen a Zero balance SavingsA/c?</td>
-    </tr>
-        <tr>
-      <td><input type="checkbox" name="" value=""></td>
-      <td>ICICIPrudential</td>
-      <td>Ensure CompleteProtection for your loved ones with ICICIPrudential iProtect Smart.</td>
-    </tr>
-        <tr>
-      <td><input type="checkbox" name="" value=""></td>
-      <td>HealthInsurance</td>
-      <td>Save TaxUnder Section 80D and Protect Your Family.</td>
-    </tr>
-        <tr>
-      <td><input type="checkbox" name="" value=""></td>
-      <td>Freelancer.com</td>
-      <td>Be a NASA Judge and Earn $25 USD</td>
-    </tr>
-        <tr>
-      <td><input type="checkbox" name="" value=""></td>
-      <td>LendingKart</td>
-      <td>Hi, Your A/C can beCredited with Rs.550,000..</td>
-    </tr>
-      <tr>
-      <td><input type="checkbox" name="" value=""></td>
-      <td>Freelancer.com</td>
-      <td>Be a NASA Judge and Earn $25 USD</td>
-    </tr>
-      <tr>
-      <td><input type="checkbox" name="" value=""></td>
-      <td>Care HealthInsurance</td>
-      <td>Save taxUnder section80D and Protect yourfamily</td>
-    </tr>
-      <tr>
-      <td><input type="checkbox" name="" value=""></td>
-      <td>LendingKart</td>
-      <td>Hi, Your A/C can beCredited with Rs.550,000..</td>
-    </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>  
+  </tr>
+<?php 
+
+
+  $qry = mysqli_query($con, "SELECT * FROM `mails` ");
+
+  while($row = mysqli_fetch_array($qry)) {
+    // print_r($row);
+    // echo $row['name'];
+    // echo "<br>";
+
+    echo "<tr>";
+      echo '<td><input type="checkbox"</td>';
+      echo "<td>".$row['id']."</td>";
+      echo "<td>".$row['senderId']."</td>";
+      echo "<td>".$row['receiverId']."</td>";
+      echo "<td>".$row['subject']."</td>";
+      echo "<td>".$row['content']."</td>";
+    echo "</tr>";
+  }
+?>
+
   </table>
-
-
 </div>
 
 </body>
