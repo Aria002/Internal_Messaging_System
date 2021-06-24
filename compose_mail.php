@@ -24,7 +24,7 @@
 
       <div class="form-group">
         <label for="message">Mail Content:</label>
-        <textarea name="message" id="message" cols="50" rows="10"></textarea>
+        <textarea name="message" id="message" name="subject" cols="50" rows="10"></textarea>
       </div>
 
       <div class="file-upload">

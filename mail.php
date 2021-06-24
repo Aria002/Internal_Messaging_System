@@ -131,27 +131,27 @@ li a.active {
   </table>
     <table>
   <tr>
-    <td width="40"><input type="checkbox" name=""></td>
+    <!-- <td width="40"><input type="checkbox" name=""></td> -->
     <td width="30"><img src="refresh.png"></td>
-    <td width="30"><img src="trash.png"></td>
+    <!-- <td width="30"><img src="trash.png"></td> -->
     <td width="680"><img src="inbox.png"></td>
     <td width="">< 10 of 5000 ></td>
   </tr>
   </table>
   <br>
   <table>
-  <tr>
+  <!-- <tr>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
     <td></td>  
-  </tr>
+  </tr> -->
 <?php 
 
 
-  $qry = mysqli_query($con, "SELECT * FROM `mails` ");
+  $qry = mysqli_query($con, "SELECT * FROM `mails` WHERE `deleteStatusReceiver` != 'true'");
 
   while($row = mysqli_fetch_array($qry)) {
     // print_r($row);
@@ -159,12 +159,13 @@ li a.active {
     // echo "<br>";
 
     echo "<tr>";
-      echo '<td><input type="checkbox"</td>';
-      echo "<td>".$row['id']."</td>";
+      // echo '<td><input type="checkbox"</td>';
+      // echo "<td>".$row['id']."</td>";
       echo "<td>".$row['senderId']."</td>";
       echo "<td>".$row['receiverId']."</td>";
       echo "<td>".$row['subject']."</td>";
       echo "<td>".$row['content']."</td>";
+      echo "<td width='30'><a href='delete-mail.php?id=".$row['id']."'><img src='trash.png'></a></td>";
     echo "</tr>";
   }
 ?>
