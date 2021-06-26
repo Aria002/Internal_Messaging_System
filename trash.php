@@ -145,7 +145,7 @@ li a.active {
 <?php 
 
 
-  $qry = mysqli_query($con, "SELECT * FROM `mails` WHERE `deleteStatusReceiver` != 'true'");
+  $qry = mysqli_query($con, "SELECT * FROM `mails` WHERE `deleteStatusReceiver` = 'true'");
 
   while($row = mysqli_fetch_array($qry)) {
     // print_r($row);
@@ -159,7 +159,7 @@ li a.active {
       echo "<td>".$row['receiverId']."</td>";
       echo "<td>".$row['subject']."</td>";
       echo "<td>".$row['content']."</td>";
-      echo "<td width='30'><a href='delete-mail.php?id=".$row['id']."'><img src='trash.png'></a></td>";
+      echo "<td width='30'><a href='delete-permanent.php?id=".$row['id']."'><img src='trash.png'></a></td>";
     echo "</tr>";
   }
 ?>

@@ -108,7 +108,7 @@ li a.active {
 
 <ul>
   <li><a href="compose_mail.php">+ Compose Mail</a></li>
-  <li><a class="#active" href="mail.php">Inbox</a></li>
+  <li><a class="mail.php" href="#Inbox">Inbox</a></li>
   <li><a href="#about">Sent</a></li>
   <li><a href="trash.php">Trash Box</a></li>
   <li><a href="logout.php">Logout</a></li>
