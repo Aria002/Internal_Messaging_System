@@ -11,10 +11,10 @@
 <section>
   <div class="regform"><h1>New Mail</h1></div>
   <div class="compose">
-    <form action="mail.php" method="POST" id="new_message">
+    <form action="mail_acc.php" method="POST" id="new_message">
       <div class="form-group">
         <label for="email"> To: </label>
-        <input type="email" id="email" name="email">
+        <input type="email" id="email" name="receiverId">
       </div>
 
       <div class="form-group">
@@ -24,14 +24,14 @@
 
       <div class="form-group">
         <label for="message">Mail Content:</label>
-        <textarea name="message" id="message" name="subject" cols="50" rows="10"></textarea>
+        <textarea name="content" id="message" cols="50" rows="10"></textarea>
       </div>
 
-      <div class="file-upload">
+       <div class="file-upload">
       <input class="file-upload__input" type="file" name="myFile[]" id="myFile" multiple>
       <button class="file-upload__button" type="button">Attach File(s)</button>
       <span class="file-upload__label"></span>
-      </div>
+      </div> 
 
       <button type="submit">Send</button>
     </form>
