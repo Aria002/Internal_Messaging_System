@@ -129,7 +129,16 @@ li a.active {
     <td width="30"><img src="refresh.png"></td>
     <!-- <td width="30"><img src="trash.png"></td> -->
     <td width="680"><img src="inbox.png"></td>
-    <td width="">< 10 of 5000 ></td>
+
+    <?php 
+      session_start();
+
+      $qry = mysqli_query($con, "SELECT * FROM `mails` WHERE `senderId` = '". $_SESSION['email'] ."' AND `deleteStatusSender` != 'true'");
+      $num = mysqli_num_rows($qry);
+
+      echo '<td width="">< '.$num.' of '.$num.' ></td>';
+
+    ?>
   </tr>
   </table>
   <br>
@@ -143,10 +152,6 @@ li a.active {
     <td></td>  
   </tr> -->
 <?php 
-
-
-  $qry = mysqli_query($con, "SELECT * FROM `mails` WHERE `deleteStatusSender` != 'true'");
-
   while($row = mysqli_fetch_array($qry)) {
     // print_r($row);
     // echo $row['name'];

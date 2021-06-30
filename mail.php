@@ -109,7 +109,7 @@ li a.active {
 <ul>
   <li><a href="compose_mail.php">+ Compose Mail</a></li>
   <li><a class="#active" href="mail.php">Inbox</a></li>
-  <li><a href="#about">Sent</a></li>
+  <li><a href="sent_box.php">Sent</a></li>
   <li><a href="trash.php">Trash Box</a></li>
   <li><a href="logout.php">Logout</a></li>
 </ul>
@@ -129,7 +129,15 @@ li a.active {
     <td width="30"><img src="refresh.png"></td>
     <!-- <td width="30"><img src="trash.png"></td> -->
     <td width="680"><img src="inbox.png"></td>
-    <td width="">< 10 of 5000 ></td>
+
+    <?php 
+      session_start();
+
+      $qry = mysqli_query($con, "SELECT * FROM `mails` WHERE `receiverId` = '". $_SESSION['email'] ."' AND `deleteStatusReceiver` != 'true'");
+      $num = mysqli_num_rows($qry);
+
+      echo '<td width="">< '.$num.' of '.$num.' ></td>';
+    ?>
   </tr>
   </table>
   <br>
@@ -143,24 +151,26 @@ li a.active {
     <td></td>  
   </tr> -->
 <?php 
-
-
-  $qry = mysqli_query($con, "SELECT * FROM `mails` WHERE `deleteStatusReceiver` != 'true'");
-
   while($row = mysqli_fetch_array($qry)) {
-    // print_r($row);
-    // echo $row['name'];
-    // echo "<br>";
 
-    echo "<tr>";
-      // echo '<td><input type="checkbox"</td>';
-      // echo "<td>".$row['id']."</td>";
-      echo "<td>".$row['senderId']."</td>";
-      echo "<td>".$row['receiverId']."</td>";
-      echo "<td>".$row['subject']."</td>";
-      echo "<td>".$row['content']."</td>";
-      echo "<td width='30'><a href='delete-mail.php?id=".$row['id']."'><img src='trash.png'></a></td>";
-    echo "</tr>";
+    if ($row['readStatus'] == 'unread') {
+      echo "<tr>";
+        echo "<td><b>".$row['senderId']."</b></td>";
+        echo "<td><b>".$row['receiverId']."</b></td>";
+        echo "<td><a href='view-mail.php?mail-id=".$row['id']."'><b>".$row['subject']."</b></a></td>";
+        echo "<td><b>".$row['content']."</b></td>";
+        echo "<td width='30'><a href='delete-mail.php?id=".$row['id']."'><img src='trash.png'></a></td>";
+      echo "</tr>";
+    } else {
+      echo "<tr>";
+        echo "<td>".$row['senderId']."</td>";
+        echo "<td>".$row['receiverId']."</td>";
+        echo "<td><a href='view-mail.php?mail-id=".$row['id']."'>".$row['subject']."</a></td>";
+        echo "<td>".$row['content']."</td>";
+        echo "<td width='30'><a href='delete-mail.php?id=".$row['id']."'><img src='trash.png'></a></td>";
+      echo "</tr>";
+    }
+    
   }
 ?>
 

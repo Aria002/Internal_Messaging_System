@@ -1,6 +1,6 @@
 <?php include_once "connection.php"; ?>
 <?php
-	 $q1 = mysqli_query($con, "SELECT `id` FROM `ims` WHERE `Email` = '".$_REQUEST['email']."' AND `Password` = '".$_REQUEST['password']."'");
+	 $q1 = mysqli_query($con, "SELECT `id`, `Email` FROM `ims` WHERE `Email` = '".$_REQUEST['email']."' AND `Password` = '".$_REQUEST['password']."'");
 	$num = mysqli_num_rows($q1);
 
 	if ($num === 1) {
@@ -8,6 +8,7 @@
 
 		$user = mysqli_fetch_array($q1);
 		$_SESSION['id'] = $user['id'];
+		$_SESSION['email'] = $user['Email'];
 		header('location:choose.php');
 
 	} else {

@@ -6,13 +6,14 @@
 	// 	 $q1 = mysqli_query($con, "SELECT `id` FROM `ims` WHERE `id` =".$_SESSION['id']);
 	// 	 $row = mysqli_fetch_array($q1);
 	// }
-	echo $_SESSION["email"];die();
-	echo $qry = "INSERT INTO `mails` VALUES ('','".$_SESSION["email"]."', '".$_REQUEST['receiverId']."', '".$_REQUEST['subject']."','".$_REQUEST['content']."','','unread','false','false')";
+	// print_r($_REQUEST);
+	// echo $_SESSION["email"];die();
+	$qry = "INSERT INTO `mails` VALUES ('','".$_SESSION["email"]."', '".$_REQUEST['receiverId']."', '".$_REQUEST['subject']."','".$_REQUEST['content']."','','unread','false','false')";
 	$qry_exec = mysqli_query($con, $qry);
 
 	if ($qry_exec) {
-		header('location: mail.php');
+		header('location: sent_box.php');
 	} else {
-		echo "Failed";
+		echo "Error Occurred. Please try again later!";
 	}
 ?>
