@@ -1,3 +1,4 @@
+<?php include_once "connection.php"; ?>
 <!DOCTYPE html>
 <html lng="en">
 <head>
@@ -29,7 +30,7 @@
  					<a class="dropbtn"><i class="fa fa-bars"></i></a>
  					<div class="dropdown-content">
     					<a href="#">Profile</a>
-    					<a href="#">Contacts</a>
+    					<a href="contact.php">Contacts</a>
    						<a href="mail.php">Mail</a>
     					<a href="#">Contact Us</a>
     					<a href="logout.php">Logout</a>
