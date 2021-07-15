@@ -27,7 +27,7 @@
     </header>
 
     <main class="msger-chat">
-        <div class="msg left-msg">
+        <!-- <div class="msg left-msg">
         <div
         class="msg-img"
         style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)"
@@ -43,7 +43,7 @@
             Go ahead and send me a message. 😄
             </div>
         </div>
-        </div>
+        </div> -->
 
     </main>
 
@@ -57,15 +57,20 @@
         <span class="file-upload__label"></span>
         </div>
         <input type="text" id="text-box" class="msger-input" placeholder="Enter your message...">
-        <button type="button" class="msger-send-btn" id="sendBtn">Send</button>
+        <button type="submit" class="msger-send-btn" id="sendBtn">Send</button>
     </form>
     </section>
     <script src="java_compose.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
+        
+        var senderId = $('#userId').val();
+        var receiverId = $('#receverId').val();
         $(document).ready(function() {
-            // alert('hi')
+            setInterval(function(){ getChats(); }, 1000);
+            getChats();
         });
+        
 
         $('#sendBtn').click(function() {
             // alert('send')
@@ -85,14 +90,37 @@
                 cache: false,
                 data: data,
                 success: function(result){
-                    // $("#results").append(html);
-                    // console.log(result);
-                    var newText = '<div class="msg right-msg"><div class="msg-img" style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"></div><div class="msg-bubble"><div class="msg-info"><div class="msg-info-name">User 2</div><div class="msg-info-time">12:46</div></div><div class="msg-text">' + text + '</div></div></div>';
-                    $('.msger-chat').append(newText);
+                    getChats();
                     $('#text-box').val('');
                 }
             });
+
         })
+        function getChats() {
+            var data = {
+            senderId: senderId,
+            receiverId: receiverId,
+            }
+            $.ajax({
+                url: "getMessages.php",
+                cache: false,
+                data: data,
+                success: function(result){
+                    var data = JSON.parse(result);
+                    // console.log(data);
+                    var newText = '';
+                    $.each(data.messages, function (key, messages) {
+                        if (messages.senderId == senderId) {
+                            newText += '<div class="msg right-msg"><div class="msg-img" style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"></div><div class="msg-bubble"><div class="msg-info"><div class="msg-info-name">'+ data.sender.Name +'</div><div class="msg-info-time">12:46</div></div><div class="msg-text">' + messages.text + '</div></div></div>';
+                        } else {
+                            newText += '<div class="msg left-msg"><div class="msg-img" style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"></div><div class="msg-bubble"><div class="msg-info"><div class="msg-info-name">'+ data.receiver.Name +'</div><div class="msg-info-time">12:46</div></div><div class="msg-text">' + messages.text + '</div></div></div>';
+                        }
+                    });
+                    $('.msger-chat').html(newText);
+                    $(".msger-chat").animate({ scrollTop: $(document).height() }, 0);
+                }
+            });
+        }
     </script>
 </body>
 </html>

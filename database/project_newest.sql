@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 08, 2021 at 05:19 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.1
+-- Generation Time: Jul 15, 2021 at 05:35 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,10 +29,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `contacts` (
   `Id` int(11) NOT NULL,
+  `ownUserId` int(11) NOT NULL,
   `userId` int(10) NOT NULL,
   `phoneNumber` varchar(10) NOT NULL,
   `status` enum('active','inActive') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `contacts`
+--
+
+INSERT INTO `contacts` (`Id`, `ownUserId`, `userId`, `phoneNumber`, `status`) VALUES
+(2, 1, 3, '12345678', 'inActive'),
+(3, 3, 1, '8777802744', 'inActive');
 
 -- --------------------------------------------------------
 
@@ -106,6 +115,16 @@ CREATE TABLE `messages` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `messages`
+--
+
+INSERT INTO `messages` (`id`, `senderId`, `receiverId`, `text`, `createdAt`, `readStatus`, `deleteStatusSender`, `deleteStatusReceiver`) VALUES
+(1, '1', '3', 'hi', '0000-00-00 00:00:00', 'unread', 'false', 'false'),
+(2, '3', '1', 'this is indrajit', '0000-00-00 00:00:00', 'unread', 'false', 'false'),
+(3, '1', '3', 'hey man! how are you', '0000-00-00 00:00:00', 'unread', 'false', 'false'),
+(4, '3', '1', 'ya i am fine bro', '0000-00-00 00:00:00', 'unread', 'false', 'false');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -141,7 +160,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `ims`
@@ -159,7 +178,7 @@ ALTER TABLE `mails`
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
