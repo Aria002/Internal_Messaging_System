@@ -12,6 +12,7 @@
 
     <div>
       <h3>Contact List</h3>
+      <h3>Click on the contact to go to chatbox</h3>
       <table border="1px solid red">
         <tr>
           <td>Contacts</td>

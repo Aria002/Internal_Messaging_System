@@ -12,14 +12,14 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>ChatiFy ChatBox</title>
+	<title>MesMail ChatBox</title>
 	<link rel="stylesheet" href="chatbox_style.css">
 </head>
 <body>
 	<section class="msger">
     <header class="msger-header">
         <div class="msger-header-title">
-        <i class="fas fa-comment-alt"></i> ChatiFy
+        <i class="fas fa-comment-alt"></i> MesMail
         </div>
         <div class="msger-header-options">
         <span><i class="fas fa-cog"></i></span>
