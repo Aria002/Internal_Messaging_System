@@ -1,4 +1,34 @@
 <?php include_once "connection.php"; ?>
+<?php
+	session_start();
+	$userId = $_SESSION['id'];
+
+	$qry = "
+	SELECT *
+	FROM 
+	`ims` WHERE `id` IN (
+		SELECT 
+			`messages`.`receiverId`
+		FROM 
+			`messages` 
+		WHERE 
+		`senderId` = ".$userId." ORDER BY `id` ASC)";
+	$qry_exec = mysqli_query($con, $qry);
+
+	// while($row = mysqli_fetch_array($qry_exec)) {
+		// print_r($row);
+		// $chatUsers[] = array(
+		// 	'userId'=>$row['id'], 
+		// 	'name'=>$row['name'], 
+		// 	'email'=>$row['email'], 
+		// 	'gender'=>$row['gender'], 
+		// 	'city'=>$row['city']
+		// );
+
+	// }
+	// die();
+
+?>
 <!DOCTYPE html>
 <html lng="en">
 <head>
@@ -40,16 +70,22 @@
 			</header>
 			
 			<div class="users_list">
-				<a href="#">
+				<?php
+					while($row = mysqli_fetch_array($qry_exec)) {
+				?>
+				<a href="chatbox.php?receverId=<?=$row['id']?>&&phoneNumber=<?=$row['Phone']?>">
 					<div class="content">
 						<img src="stars.jpg" alt="#">
 						<div class="details">
-							<span>User</span>
-							<p>hi hello</p>
+							<span><?=$row['Name']?></span>
+							<!-- <p>hi hello</p> -->
 						</div>
 					</div>
 					<div class="status_dot"><i class="fa fa-circle"></i></div>
 				</a>
+				<?php
+					}
+				?>
 			</div>
 		</section>
 	</div>
