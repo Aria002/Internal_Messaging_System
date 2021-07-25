@@ -10,7 +10,7 @@ body {
 }
 section {
   height: 100vh;
-  width: 100%;
+  width: auto;
   background-color: #addcff;
   display: flex;
   align-items: center;

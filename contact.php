@@ -7,7 +7,7 @@
 </head>
 <body>
   <form action="chat_acc.php">
-    Phone:<input type="text" name="Phone" placeholder="phone number"><br><br>
+    Add New PhoneNumber :<input type="text" name="Phone" placeholder="phone number"><br><br>
     <button type="submit">ADD Contact</button>
 
     <div>

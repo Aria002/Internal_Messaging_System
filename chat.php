@@ -35,7 +35,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible"content="ie=edge">
-	<title>user's list design</title>
+	<title>MesMail Chat</title>
 	<link rel="stylesheet" href="list style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -61,7 +61,7 @@
  					<div class="dropdown-content">
     					<a href="#">Profile</a>
     					<a href="contact.php">Contacts</a>
-   						<a href="mail.php">Mail</a>
+   						<a href="mail.php">Go To Mail</a>
     					<a href="#">Contact Us</a>
     					<a href="logout.php">Logout</a>
  					</div>

@@ -111,6 +111,7 @@ li a.active {
   <li><a class="#active" href="mail.php">Inbox</a></li>
   <li><a href="sent_box.php">Sent</a></li>
   <li><a href="trash.php">Trash Box</a></li>
+  <li><a href="chat.php">Go To Chat Page</a></li>
   <li><a href="logout.php">Logout</a></li>
 </ul>
 
