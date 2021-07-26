@@ -5,7 +5,7 @@
 	$row=mysqli_fetch_array($q1);
 
 	if ($num === 1) {
-		header('location:loc.php?id='.$row["id"]);
+		header('location:lo.php?id='.$row["id"]);
 
 	} else {
 		header('location:forgot.php');
